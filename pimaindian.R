@@ -1,5 +1,46 @@
 
+#set my working directory 
+setwd("C:/Users/bukharis/Desktop/My_data files")
+getwd()
+#loading my datasets 
+diabetes_datasets <- read.csv("diabetes_Datasets.csv")
+str(diabetes_Datasets)
+summary(diabetes_datasets)
+
+# Unpaired T-test
+ out_put_ttest_unpaired <- t.test(Glucose ~ Outcome, data = diabetes_datasets, paired = FALSE)
+ print(out_put_ttest_unpaired)
+
+
+
+
+#Create a box plot
+ boxplot(Glucose ~ Outcome, data = diabetes_datasets, 
+         xlab = "Outcome", ylab = "Glucose Levels",
+         main = "Glucose Levels by Diabetes Outcome")
+
+ # Add colors and legend
+ boxplot(Glucose ~ Outcome, data = diabetes_datasets, 
+         xlab = "Outcome", ylab = "Glucose Levels",
+         main = "Glucose Levels by Diabetes Outcome",
+         col = c("goldenrod", "darkgreen"), 
+        names = c("Non-diabetic", "Diabetic"))
+ legend("topright", legend = c("Non-diabetic", "Diabetic"),
+        fill = c("goldenrod", "darkgreen"))
+
+# Logistic regression 
+
+diabetes_logistic_fit <- glm(Outcome ~ Glucose + BMI + Age + BloodPressure, data = diabetes_datasets, family = binomial)
+summary(diabetes_logistic_fit)
+
+
+
+
+
+
+
 To do pca#
+
 
 
 install.packages("ade4")
@@ -73,16 +114,13 @@ pca_model <- preProcess(features, method = "pca", pcaCalcInclude = c("eigen"))
 
 
 
- correlation coefficient #
+ #correlation coefficient #
 
  diabetes_data <- read.csv("C:/Users/bukharis/Desktop/My_data files/diabetes_datasets.csv")
  selected_variables <- c("Pregnancies", "Glucose", "BloodPressure", "SkinThickness", 
                          "Insulin", "BMI", "DiabetesPedigreeFunction", "Age", "Outcome")
  correlation_matrix <- cor(diabetes_data[selected_variables])
  print(correlation_matrix)
-
-
-
 function (path = ".", pattern = NULL, all.files = FALSE, full.names = FALSE, 
     recursive = FALSE, ignore.case = FALSE, include.dirs = FALSE, 
     no.. = FALSE) .Internal(list.files(path, pattern, all.files, full.names, recursive, 
@@ -98,18 +136,5 @@ library(ggplot2)
 data <- read.csv("C:/Users/bukharis/Desktop/My_data files/diabetes_datasets.csv")
 
 
- Create a box plot
-> boxplot(Glucose ~ Outcome, data = diabetes_datasets, 
-+         xlab = "Outcome", ylab = "Glucose Levels",
-+         main = "Glucose Levels by Diabetes Outcome")
-> 
-> # Add colors and legend
-> boxplot(Glucose ~ Outcome, data = diabetes_datasets, 
-+         xlab = "Outcome", ylab = "Glucose Levels",
-+         main = "Glucose Levels by Diabetes Outcome",
-+         col = c("goldenrod", "darkgreen"), 
-+         names = c("Non-diabetic", "Diabetic"))
-> legend("topright", legend = c("Non-diabetic", "Diabetic"),
-+        fill = c("goldenrod", "darkgreen"))
 
 
