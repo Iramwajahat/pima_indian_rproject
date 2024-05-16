@@ -129,12 +129,6 @@ bytecode: 0x000001c1279d5008>
 environment: namespace:base>
 
 
-# Load the required library
-library(ggplot2)
-
-# Read the dataset
-data <- read.csv("C:/Users/bukharis/Desktop/My_data files/diabetes_datasets.csv")
-
 
 
 
