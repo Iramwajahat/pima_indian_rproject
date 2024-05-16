@@ -111,3 +111,5 @@ data <- read.csv("C:/Users/bukharis/Desktop/My_data files/diabetes_datasets.csv"
 +         names = c("Non-diabetic", "Diabetic"))
 > legend("topright", legend = c("Non-diabetic", "Diabetic"),
 +        fill = c("goldenrod", "darkgreen"))
+
+# this is end of the code
